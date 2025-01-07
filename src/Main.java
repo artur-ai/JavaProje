@@ -21,7 +21,6 @@ public class Main {
         int valuef = 108;
         int q = 3;
 
-
         charArray(array);
 
         char[] charArray = toCharArray(arraysecond);
