@@ -24,6 +24,9 @@ public class Main {
         int h = 5;
         int j = 6;
         int k = 7;
+        int min = 1;
+        int maxFir = 100;
+        int length = 10;
         int value = 68;
         int valuef = 108;
         int q = 3;
@@ -72,23 +75,29 @@ public class Main {
         System.out.println("Does the array have repeating elements? : " + reiteration(arr));
 
         arrsMath(arrayFirst, arraySecond);
-        System.out.println("The result of multiplication: ");
-        for (int valuet : arrayResult ) {
-            System.out.println(valuet + " ");
-        }
+        System.out.println("The result of multiplication: " + Arrays.toString(arrayResult));
+
 
         arrayfirst = new int[]{65, 66, 67, 68, 69};
         arraysecond =new int[] {65, 54, 68, 89, 70};
         int [] resultArray = offSet(arrayfirst, arraysecond);
         offSet(arrayfirst, arraysecond);
-        System.out.println("The result of the difference: ");
-       for (int valuer : resultArray) {
-           System.out.print(valuer + " ");
-       }
+        System.out.println("The result of the difference: " + Arrays.toString(resultArray));
+       
 
-       //приймає масив інтів, повертає його ж у реверсному порядку
+        arrayfirst = new int[]{65, 66, 67, 68, 69};
+        int [] reversedArray = reverseArray(arrayfirst);
+        System.out.println("Original array: " + Arrays.toString(arrayfirst));
+        System.out.println("Reversed array: " + Arrays.toString(reversedArray));
 
+        int [] randomArray = randomArray(min, maxFir, length);
+        System.out.println("Random array: " + Arrays.toString(randomArray));
 
+        array = new char[]  {'a', '#', '!'};
+        //charArrayFirst = new char[] {'!', '@', '#', '$', '%', '^', '&', '*', '~'};
+        char[] charArraySecond = {'a', '#', '!'};
+        arrayChar(array, charArraySecond);
+        System.out.println("arrays repeating? - " + arrayChar(array, charArraySecond));
 
     }
 
@@ -248,8 +257,30 @@ public class Main {
        }
        int[] resultArray = resultList.stream().mapToInt(Integer::intValue).toArray();
        return resultArray;
-
-
    }
+
+    public static int[] reverseArray(int[] arrayfirst) {
+        int[] reversed = new int[arrayfirst.length];
+        for (int i = 0; i < arrayfirst.length; i++) {
+            reversed[i] = arrayfirst[arrayfirst.length - i - 1];
+        }return reversed;
+    }
+
+    public static int[] randomArray (int min, int max, int length ) {
+        int[] array = new int[length];
+        for (int i = 0; i < length; i++) {
+            array[i] = (int)(Math.random() * (max - min + 1) + min);
+        }
+        return array;
+    }
+
+    public static boolean arrayChar (char[] first, char[] second) {
+        for (int i = 0; i < first.length; i++) {
+            if (first[i] == second[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
